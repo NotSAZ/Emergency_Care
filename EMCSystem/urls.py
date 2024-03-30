@@ -20,11 +20,11 @@ from Location import views as l_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',l_views.Location,name = 'Home'),
-    path('Users/',l_views.Users,name = 'Users'),
-    path('Hospital/',l_views.Hospital,name = 'hospital'),
-    path('Services/',l_views.Services,name = 'Services'),
-    path('Ambulance/',l_views.Ambulance,name = 'Ambulance'),
-    path('ICUVacancy/',l_views.ICUVac,name = 'ICUVac'),
-    path('DoctorList/',l_views.DoctorList,name = 'DoctorList'),
+    path('',l_views.location,name='Home'),
+    path('Users/',l_views.users,name='Users'),
+    path('Hospital/',l_views.hospital,name='hospital'),
+    path('Services/',l_views.services,name='Services'),
+    path('Ambulance/',l_views.ambulance,name='Ambulance'),
+    path('ICUVacancy/',l_views.icuvac,name='ICUVac'),
+    path('DoctorList/',l_views.doctorlist,name='DoctorList'),
 ]

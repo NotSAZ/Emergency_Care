@@ -43,10 +43,10 @@ class DoctorList(models.Model):
     D_Name = models.CharField(max_length=200, blank=True, null=True)
     D_Experience = models.CharField(max_length=200, blank=True, null=True)
     D_Speciality = models.CharField(max_length=200, blank=True, null=True)
-   # status_availabilty = (
-       # ('Available','Available'),
-        #('Not Available', 'Not Available'),
-    #)
-    #Availability = models.CharField(max_length=100, choices=status_availabilty,blank=True,null=True)
+    status_availabilty = (
+       ('Available','Available'),
+        ('Not Available', 'Not Available'),
+    )
+    Availability = models.CharField(max_length=100, choices=status_availabilty,blank=True,null=True)
     def __str__(self):
         return self.H_ID.H_name
