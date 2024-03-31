@@ -12,6 +12,9 @@ class Hospital(models.Model):
     H_ID = models.CharField(max_length=200)
     H_name = models.CharField(max_length=200)
     Co_ordinate = models.ForeignKey(Location, on_delete=models.CASCADE)
+
+    image = models.ImageField(blank=True, null=True)
+
     def __str__(self):
         return self.H_name
 
@@ -34,8 +37,11 @@ class Services(models.Model):
     S_ID = models.CharField(max_length=200, blank=True, null=True)
     S_Name = models.CharField(max_length=200, blank=True, null=True)
     S_Budget = models.IntegerField(blank=True, null=True)
+
+    image = models.ImageField(blank=True, null=True)
+
     def __str__(self):
-        return self.H_ID.H_name
+        return self.S_Name
 
 class DoctorList(models.Model):
     H_ID = models.ForeignKey(Hospital, on_delete=models.CASCADE, blank=True, null=True)
