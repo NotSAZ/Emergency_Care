@@ -48,5 +48,8 @@ class DoctorList(models.Model):
         ('Not Available', 'Not Available'),
     )
     Availability = models.CharField(max_length=100, choices=status_availabilty,blank=True,null=True)
+
+    image = models.ImageField(blank=True, null=True)
+
     def __str__(self):
-        return self.H_ID.H_name
+        return self.D_Name

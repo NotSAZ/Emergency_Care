@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 from Location import views as l_views
 
 urlpatterns = [
@@ -28,3 +30,5 @@ urlpatterns = [
     path('ICUVacancy/',l_views.icuvac,name='ICUVac'),
     path('DoctorList/',l_views.doctorlist,name='DoctorList'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
