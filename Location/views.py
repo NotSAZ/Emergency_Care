@@ -4,7 +4,6 @@ from .models import Location,Hospital,User,Ambulance,ICUVacancy,DoctorList,Servi
 # Create your views here.
 def location(request):
     return render(request,template_name='hospital/Home.html')
-
 def hospital(request):
     hospital = Hospital.objects.all()
     context={

@@ -28,6 +28,12 @@ class ICUVacancy(models.Model):
     Number_of_ICU = models.IntegerField(blank=True, null=True)
     ICU_Budget = models.IntegerField(blank=True, null=True)
 
+    status_vacancy = (
+        ('Vacant', 'Vacant'),
+        ('Occupied', 'Occupied'),
+    )
+    Vacancy = models.CharField(max_length=100, choices=status_vacancy, blank=True, null=True)
+
     def __str__(self):
         return self.H_ID.H_name
 
