@@ -1,0 +1,20 @@
+ {% extends 'hospital/DoctorList.html' %}
+ {% block content %}
+ {% load static %}
+<div class="card mb-3 col-md-3"
+     style = "display: block;
+     margin-left: auto;
+     margin-right: auto">
+  {% if doctorlist.image %}
+ <img src = "{{doctorlist.image.url}}" class = "card-img-top" alt="..." style="height: 210px; width: 315px;">
+{% endif %}
+
+ <div class="card-body">
+  <h5 class="card-title"><b>Hospital ID:</b> {{doctorlist.H_ID}}</h5>
+  <p class="card-text"><b>Doctor ID:</b> {{doctorlist.D_ID}}</p>
+     <p class="card-text"><b>Doctor Name:</b> {{doctorlist.D_Name}}</p>
+     <p class="card-text"><b>Doctor Experience:</b> {{doctorlist.D_Experience}}</p>
+  <p class="card-text"><small class = "text-body-secondary"><b>Speciality:</b> {{doctorlist.D_Speciality}}</small></p>
+</div>
+</div>
+ {% endblock %}

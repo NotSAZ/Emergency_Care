@@ -10,6 +10,12 @@ def hospital(request):
        'hospital':hospital,
     }
     return render(request,template_name='hospital/hospital.html',context=context)
+def details(request, id):
+    hospital = Hospital.objects.get(pk=id)
+    context = {
+       'hospital': hospital,
+    }
+    return render(request, template_name='hospital/Details.html', context = context)
 def users(request):
     return render(request,template_name='hospital/Users.html')
 def services(request):
@@ -18,6 +24,12 @@ def services(request):
         'service': service,
     }
     return render(request, template_name='hospital/Services.html',context=context)
+def servicedetails(request, id):
+    service = Services.objects.get(pk=id)
+    context = {
+       'service': service,
+    }
+    return render(request, template_name='hospital/ServiceDetails.html', context=context)
 def ambulance(request):
     ambulance = Ambulance.objects.all()
     context = {
@@ -36,3 +48,10 @@ def doctorlist(request):
         'doctorlist': doctorlist,
     }
     return render(request, template_name='hospital/DoctorList.html',context=context)
+
+def doctordetails(request, id):
+    doctorlist = DoctorList.objects.get(pk=id)
+    context = {
+       'doctorlist': doctorlist,
+    }
+    return render(request, template_name='hospital/DoctorDetails.html', context=context)

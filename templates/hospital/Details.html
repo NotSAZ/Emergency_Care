@@ -1,0 +1,18 @@
+ {% extends 'hospital/hospital.html' %}
+ {% block content %}
+ {% load static %}
+<div class="card mb-3 col-md-3"
+     style = "display: block;
+     margin-left: auto;
+     margin-right: auto">
+  {% if hospital.image %}
+ <img src = "{{hospital.image.url}}" class = "card-img-top" alt="..." style="height: 300px; width: 315px;">
+{% endif %}
+
+ <div class="card-body">
+  <h5 class="card-title">Hospital ID: {{hospital.H_ID}}</h5>
+  <p class="card-text"><b>Hospital Name:</b> {{hospital.H_name}}</p>
+  <p class="card-text"><small class = "text-body-secondary"><b>Hospital Co_ordinate:</b> {{hospital.Co_ordinate}}</small></p>
+</div>
+</div>
+ {% endblock %}

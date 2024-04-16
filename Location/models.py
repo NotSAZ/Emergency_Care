@@ -16,7 +16,7 @@ class Hospital(models.Model):
     image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
-        return self.H_name
+        return self.H_ID
 
 class Ambulance(models.Model):
     Co_ordinate = models.ForeignKey(Location, on_delete=models.CASCADE)
@@ -35,8 +35,7 @@ class ICUVacancy(models.Model):
     Vacancy = models.CharField(max_length=100, choices=status_vacancy, blank=True, null=True)
 
     def __str__(self):
-        return self.H_ID.H_name
-
+        return self.H_ID
 
 class Services(models.Model):
     H_ID = models.ForeignKey(Hospital, on_delete=models.CASCADE, blank=True, null=True)

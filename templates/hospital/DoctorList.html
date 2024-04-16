@@ -11,6 +11,7 @@
         <th scope="col">Doctor Name</th>
       <th scope="col">Doctor Experience</th>
       <th scope="col">Doctor Speciality</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,7 @@
       <td>{{d.D_Name}}</td>
       <td>{{d.D_Experience}}</td>
       <td>{{d.D_Speciality}}</td>
+      <td><a href="{% url 'DoctorDetails' d.id %}" class = "btn btn-warning">Details</a></td>
     </tr>
   {% endfor %}
   </tbody>
