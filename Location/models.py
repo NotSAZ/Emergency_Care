@@ -13,7 +13,7 @@ class Hospital(models.Model):
     H_name = models.CharField(max_length=200)
     Co_ordinate = models.ForeignKey(Location, on_delete=models.CASCADE)
 
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(upload_to='images/',blank=True, null=True, default='images/default.jpg')
 
     def __str__(self):
         return self.H_ID
@@ -43,8 +43,7 @@ class Services(models.Model):
     S_Name = models.CharField(max_length=200, blank=True, null=True)
     S_Budget = models.IntegerField(blank=True, null=True)
 
-    image = models.ImageField(blank=True, null=True)
-
+    image = models.ImageField(upload_to='images/', blank=True, null=True, default='images/default.jpg')
     def __str__(self):
         return self.S_Name
 
@@ -60,7 +59,7 @@ class DoctorList(models.Model):
     )
     Availability = models.CharField(max_length=100, choices=status_availabilty,blank=True,null=True)
 
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(upload_to='images/', blank=True, null=True, default='images/default.jpg')
 
     def __str__(self):
         return self.D_Name

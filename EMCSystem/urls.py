@@ -26,12 +26,15 @@ urlpatterns = [
     path('Users/',l_views.users,name='Users'),
     path('Hospital/',l_views.hospital,name='hospital'),
     path('Hospital/<str:id>',l_views.details, name='Details'),
+    path('add_hospital/',l_views.add_hospital,name='add_hospital'),
     path('Services/',l_views.services,name='Services'),
     path('Services/<str:id>', l_views.servicedetails, name='ServiceDetails'),
+    path('add_service/',l_views.add_service,name='add_service'),
     path('Ambulance/',l_views.ambulance,name='Ambulance'),
     path('ICUVacancy/',l_views.icuvac,name='ICUVac'),
     path('DoctorList/',l_views.doctorlist,name='DoctorList'),
     path('DoctorList/<str:id>', l_views.doctordetails, name='DoctorDetails'),
+    path('add_doctor/',l_views.add_doctor,name='add_doctor'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

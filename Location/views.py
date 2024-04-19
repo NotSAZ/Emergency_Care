@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Location,Hospital,User,Ambulance,ICUVacancy,DoctorList,Services
-
+from .forms import *
 # Create your views here.
 def location(request):
     return render(request,template_name='hospital/Home.html')
@@ -16,6 +16,18 @@ def details(request, id):
        'hospital': hospital,
     }
     return render(request, template_name='hospital/Details.html', context = context)
+def add_hospital(request):
+    form = HospitalForm()
+    if request.method == 'POST':
+        form = HospitalForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('hospital')
+
+    context = {
+        'form':form
+    }
+    return render(request, template_name='hospital/add_hospital.html',context=context)
 def users(request):
     return render(request,template_name='hospital/Users.html')
 def services(request):
@@ -30,6 +42,19 @@ def servicedetails(request, id):
        'service': service,
     }
     return render(request, template_name='hospital/ServiceDetails.html', context=context)
+
+def add_service(request):
+    form = ServiceForm()
+    if request.method == 'POST':
+        form = ServiceForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('Services')
+
+    context = {
+        'form':form
+    }
+    return render(request, template_name='hospital/add_service.html',context=context)
 def ambulance(request):
     ambulance = Ambulance.objects.all()
     context = {
@@ -55,3 +80,16 @@ def doctordetails(request, id):
        'doctorlist': doctorlist,
     }
     return render(request, template_name='hospital/DoctorDetails.html', context=context)
+
+def add_doctor(request):
+    form = DoctorListForm()
+    if request.method == 'POST':
+        form = DoctorListForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('DoctorList')
+
+    context = {
+        'form':form
+    }
+    return render(request, template_name='hospital/add_doctor.html',context=context)
