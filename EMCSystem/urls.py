@@ -21,6 +21,9 @@ from django.conf import settings
 from Location import views as l_views
 
 urlpatterns = [
+    path('register/',l_views.registerPage,name='register'),
+    path('login/',l_views.loginPage,name='login'),
+    path('logout/',l_views.logoutUser,name='logout'),
     path('admin/', admin.site.urls),
     path('',l_views.location,name='Home'),
     path('Users/',l_views.users,name='Users'),
