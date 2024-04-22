@@ -54,6 +54,7 @@ def logoutUser(request):
 
 def location(request):
     return render(request,template_name='hospital/Home.html')
+
 @login_required(login_url='login')
 def hospital(request):
     hospital = Hospital.objects.all()
@@ -61,12 +62,14 @@ def hospital(request):
        'hospital':hospital,
     }
     return render(request,template_name='hospital/hospital.html',context=context)
+
 def details(request, id):
     hospital = Hospital.objects.get(pk=id)
     context = {
        'hospital': hospital,
     }
     return render(request, template_name='hospital/Details.html', context = context)
+
 def add_hospital(request):
     form = HospitalForm()
     if request.method == 'POST':
@@ -79,8 +82,32 @@ def add_hospital(request):
         'form':form
     }
     return render(request, template_name='hospital/add_hospital.html',context=context)
+
+def update_hospital(request, id):
+    hospital = Hospital.objects.get(pk = id)
+    form = HospitalForm(instance=hospital)
+    if request.method == 'POST':
+        form = HospitalForm(request.POST, request.FILES, instance=hospital)
+        if form.is_valid():
+            form.save()
+            return redirect('hospital')
+
+    context = {'form':form}
+    return render(request, template_name='hospital/add_hospital.html', context=context)
+
+def delete_hospital(request, id):
+    hospital = Hospital.objects.get(pk = id)
+    if request.method == 'POST':
+        hospital.delete()
+        return redirect('hospital')
+
+    return render(request, template_name='hospital/delete_hospital.html')
+
+
+
 def users(request):
     return render(request,template_name='hospital/Users.html')
+
 @login_required(login_url='login')
 def services(request):
     service = Services.objects.all()
@@ -88,6 +115,7 @@ def services(request):
         'service': service,
     }
     return render(request, template_name='hospital/Services.html',context=context)
+
 def servicedetails(request, id):
     service = Services.objects.get(pk=id)
     context = {
@@ -107,6 +135,27 @@ def add_service(request):
         'form':form
     }
     return render(request, template_name='hospital/add_service.html',context=context)
+
+def update_service(request, id):
+    services = Services.objects.get(pk = id)
+    form = ServiceForm(instance=services)
+    if request.method == 'POST':
+        form = ServiceForm(request.POST, request.FILES, instance=services)
+        if form.is_valid():
+            form.save()
+            return redirect('Services')
+
+    context = {'form':form}
+    return render(request, template_name='hospital/add_service.html', context=context)
+
+def delete_service(request, id):
+    services = Services.objects.get(pk = id)
+    if request.method == 'POST':
+        services.delete()
+        return redirect('Services')
+
+    return render(request, template_name='hospital/delete_service.html')
+
 @login_required(login_url='login')
 def ambulance(request):
     ambulance = Ambulance.objects.all()
@@ -114,6 +163,7 @@ def ambulance(request):
         'ambulance': ambulance,
     }
     return render(request, template_name='hospital/Ambulance.html',context=context)
+
 @login_required(login_url='login')
 def icuvac(request):
     icuvac = ICUVacancy.objects.all()
@@ -121,6 +171,7 @@ def icuvac(request):
         'icuvac': icuvac,
     }
     return render(request, template_name='hospital/ICUVac.html',context=context)
+
 @login_required(login_url='login')
 def doctorlist(request):
     doctorlist = DoctorList.objects.all()
@@ -148,3 +199,23 @@ def add_doctor(request):
         'form':form
     }
     return render(request, template_name='hospital/add_doctor.html',context=context)
+
+def update_doctor(request, id):
+    doctorlist = DoctorList.objects.get(pk = id)
+    form = DoctorListForm(instance=doctorlist)
+    if request.method == 'POST':
+        form = DoctorListForm(request.POST, request.FILES, instance=doctorlist)
+        if form.is_valid():
+            form.save()
+            return redirect('DoctorList')
+
+    context = {'form':form}
+    return render(request, template_name='hospital/add_doctor.html', context=context)
+
+def delete_doctor(request, id):
+    doctorlist = DoctorList.objects.get(pk = id)
+    if request.method == 'POST':
+        doctorlist.delete()
+        return redirect('DoctorList')
+
+    return render(request, template_name='hospital/delete_doctor.html')

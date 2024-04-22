@@ -11,6 +11,8 @@
       <th scope="col">Service Name</th>
       <th scope="col">Budget</th>
       <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +23,8 @@
       <td>{{s.S_ID}}</td>
       <td>{{s.S_Name}}</td>
       <td>{{s.S_Budget}}</td>
+      <td><a href="{% url 'delete_service' s.id %}" class="btn btn-danger">Delete</a></td>
+      <td><a href="{% url 'update_service' s.id %}" class="btn btn-info">Update</a></td>
       <td><a href="{% url 'ServiceDetails' s.id %}" class="btn btn-warning">Details</a></td>
     </tr>
   {% endfor %}

@@ -9,6 +9,8 @@
       <th scope="col">Hospital Name</th>
       <th scope="col">Hospital Co_ordinate</th>
       <th></th>
+        <th></th>
+        <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,7 +20,10 @@
       <td>{{h.H_ID}}</td>
       <td>{{h.H_name}}</td>
       <td>{{h.Co_ordinate}}</td>
-      <td><a href="{% url 'Details' h.id %}" class = "btn btn-warning">Details</a></td>
+        <td><a href="{% url 'delete_hospital' h.id %}" class="btn btn-danger">Delete</a></td>
+      <td><a href="{% url 'update_hospital' h.id %}" class="btn btn-info">Update</a></td>
+        <td><a href="{% url 'Details' h.id %}" class="btn btn-warning">Details</a></td>
+
     </tr>
   {% endfor %}
   </tbody>
