@@ -1,0 +1,14 @@
+ {% extends 'hospital/ICUVac.html' %}
+ {% block content %}
+ {% load static %}
+<p>Are you sure? </p>
+
+ <form method="POST">
+
+     {% csrf_token %}
+     <a href="{% url 'ICUVac' %}" class = "btn btn-primary">No</a>
+     <input type="submit" name="submit">
+
+ </form>
+
+ {% endblock %}

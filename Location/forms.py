@@ -20,6 +20,16 @@ class DoctorListForm(ModelForm):
         model = DoctorList
         fields = '__all__'
 
+class ICUForm(ModelForm):
+    class Meta:
+        model = ICUVacancy
+        fields = '__all__'
+
+class AmbulanceForm(ModelForm):
+    class Meta:
+        model = Ambulance
+        fields = '__all__'
+
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User

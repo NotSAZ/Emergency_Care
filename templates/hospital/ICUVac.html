@@ -9,6 +9,8 @@
       <th scope="col">Number of ICU</th>
       <th scope="col">ICU Budget</th>
       <th scope="col">Vacancy Status</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,9 +20,17 @@
       <td>{{i.Number_of_ICU}}</td>
       <td>{{i.ICU_Budget}}</td>
       <td>{{i.Vacancy}}</td>
+      {% if request.user.is_staff %}
+      <td><a href="{% url 'delete_ICU' i.id %}" class="btn btn-danger">Delete</a></td>
+      <td><a href="{% url 'update_ICU' i.id %}" class="btn btn-info">Update</a></td>
+      {% endif %}
     </tr>
   {% endfor %}
   </tbody>
 </table>
-
+{% if request.user.is_staff %}
+ <div class = "d-grid gap-2 col-2 mx-auto" style="...">
+  <a href="{% url 'add_ICU' %}" class = "btn btn-primary">Add ICU</a>
+ </div>
+ {% endif %}
  {% endblock %}
