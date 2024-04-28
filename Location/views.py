@@ -192,7 +192,7 @@ def update_ambulance(request, id):
     ambulance = Ambulance.objects.get(pk = id)
     form = AmbulanceForm(instance=ambulance)
     if request.method == 'POST':
-        form = ICUForm(request.POST, request.FILES, instance=ambulance)
+        form = AmbulanceForm(request.POST, request.FILES, instance=ambulance)
         if form.is_valid():
             form.save()
             return redirect('Ambulance')
@@ -204,7 +204,7 @@ def update_ambulance(request, id):
 def delete_ambulance(request, id):
     ambulance = Ambulance.objects.get(pk = id)
     if request.method == 'POST':
-        icuvac.delete()
+        ambulance.delete()
         return redirect('Ambulance')
 
     return render(request, template_name='hospital/delete_ambulance.html')
