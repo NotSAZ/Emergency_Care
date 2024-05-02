@@ -5,7 +5,13 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Ambulance Co_ordinate</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      <th scope="col">Area Name</th>
       <th scope="col">Ambulance Number</th>
       <th></th>
       <th></th>
@@ -14,7 +20,13 @@
   <tbody>
   {% for a in ambulance %}
     <tr>
-      <td>{{a.Co_ordinate}}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      <td>{{a.Area_name}}</td>
       <td>{{a.A_Number}}</td>
       {% if request.user.is_staff %}
       <td><a href="{% url 'delete_ambulance' a.id %}" class="btn btn-danger">Delete</a></td>
