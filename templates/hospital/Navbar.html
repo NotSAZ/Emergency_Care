@@ -1,9 +1,9 @@
 {% load static %}
 
 <style>
-  .hello-msg{
+  .btn-light{
   font-size: 15px;
-  color: #fff;
+  color: #000;
   margin-right: 20px;
   }
 </style>
@@ -22,9 +22,14 @@
         <a class="nav-link active" aria-current="page" href="{% url 'DoctorList' %}">Doctor's List</a>
         <a class="nav-link active" aria-current="page" href="{% url 'Ambulance' %}">Ambulance</a>
       </div>
+      </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-info" type="submit">Search</button>
+            </form>
     </div>
   </div>
 
-  <span class="hello-msg" >Hello, {{request.user}}</span>
-  <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+  <span class="btn btn-light" style=" margin-right: 10px;">Hello, {{request.user}}</span>
+  <span><a class="btn btn-danger" href="{% url 'logout' %}" style="margin-right: 10px;" >Logout</a></span>
 </nav>
