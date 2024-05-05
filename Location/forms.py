@@ -35,5 +35,4 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
-class DoctorSearchForm(forms.Form):
-    search_query = forms.CharField(label='Search', max_length=100)
+

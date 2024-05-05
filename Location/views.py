@@ -11,7 +11,7 @@ from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
-from .forms import DoctorSearchForm
+
 # Create your views here.
 @unauthenticated_user
 def registerPage(request):
@@ -256,12 +256,7 @@ def delete_ICU(request, id):
 
 @login_required(login_url='login')
 def doctorlist(request):
-    search_query = request.GET.get('search_query', '')  # Get the search query from the request
     doctorlist = DoctorList.objects.all()
-
-    if search_query:
-        doctorlist = doctorlist.filter(D_Name__icontains=search_query)
-
     context = {
         'doctorlist': doctorlist,
     }
