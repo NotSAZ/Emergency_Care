@@ -1,7 +1,8 @@
 {% load static %}
 
 <style>
-  .btn-light{
+  .btn-light
+  {
   font-size: 15px;
   color: #000;
   margin-right: 20px;
@@ -10,17 +11,17 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-info">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'Home' %}">EmergencyCare</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="{% url 'Home' %}" style="color: #000"><b>EmergencyCare</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="{% url 'hospital' %}">Hospital</a>
-        <a class="nav-link active" aria-current="page" href="{% url 'Services' %}">Services</a>
-        <a class="nav-link active" aria-current="page" href="{% url 'ICUVac' %}">ICU Vacancy</a>
-        <a class="nav-link active" aria-current="page" href="{% url 'DoctorList' %}">Doctor's List</a>
-        <a class="nav-link active" aria-current="page" href="{% url 'Ambulance' %}">Ambulance</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'hospital' %}" style="color: #000;">Hospital</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'Services' %}" style="color: #000;">Services</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'ICUVac' %}" style="color: #000;">ICU Vacancy</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'DoctorList' %}" style="color: #000;">Doctor's List</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'Ambulance' %}" style="color: #000;">Ambulance</a>
       </div>
       </ul>
             <form class="d-flex" role="search">
@@ -30,6 +31,6 @@
     </div>
   </div>
 
-  <span class="btn btn-light" style=" margin-right: 10px;">Hello, {{request.user}}</span>
+  <span><a class="btn btn-light" href="{% url 'Users' %}" style=" font-size: 15px; color: #000; margin-right: 20px;">Hello, {{request.user}}</a></span>
   <span><a class="btn btn-danger" href="{% url 'logout' %}" style="margin-right: 10px;" >Logout</a></span>
 </nav>
