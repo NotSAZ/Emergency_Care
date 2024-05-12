@@ -8,10 +8,10 @@
        <th></th>
         <th></th>
         <th></th>
-      <th scope="col">Hospital ID</th>
+      <th scope="col">Hospital Name</th>
       <th scope="col">Number of ICU</th>
       <th scope="col">ICU Budget</th>
-      <th scope="col">Vacancy Status</th>
+      <th scope="col">Vacant</th>
       <th></th>
       <th></th>
     </tr>
@@ -22,10 +22,10 @@
         <td></td>
         <td></td>
         <td></td>
-      <td>{{i.H_ID}}</td>
+      <td>{{i.H_Name}}</td>
       <td>{{i.Number_of_ICU}}</td>
       <td>{{i.ICU_Budget}}</td>
-      <td>{{i.Vacancy}}</td>
+      <td>{{i.Vacant}}</td>
       {% if request.user.is_staff %}
       <td><a href="{% url 'delete_ICU' i.id %}" class="btn btn-danger">Delete</a></td>
       <td><a href="{% url 'update_ICU' i.id %}" class="btn btn-info">Update</a></td>

@@ -26,6 +26,7 @@ urlpatterns = [
     path('logout/',l_views.logoutUser,name='logout'),
     path('admin/', admin.site.urls),
     path('',l_views.location,name='Home'),
+    path('search',l_views.search,name='search'),
     path('Users/',l_views.users,name='Users'),
     path('Hospital/',l_views.hospital,name='hospital'),
     path('Hospital/<str:id>',l_views.details, name='Details'),
