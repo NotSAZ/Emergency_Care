@@ -34,8 +34,9 @@
         {% for d in doctorlist %}
         <p class="card-text"><b>Doctor ID:</b> {{ d.D_ID }}</p>
             <p class="card-text"><b>Doctor Name:</b> {{ d.D_Name }}</p>
-            <p class="card-text"><b>Speciality:</b> {{ d.D_Experience }}</p>
+            <p class="card-text"><b>Experience:</b> {{ d.D_Experience }}</p>
         <p class="card-text"><b>Speciality:</b> {{ d.D_Speciality }}</p>
+        <p class="card-text"><b>Availability:</b> {{ d.Availability }}</p>
         {% endfor %}
     </div>
 </div>

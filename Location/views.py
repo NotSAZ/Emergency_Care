@@ -20,6 +20,8 @@ def profile(request):
         return render(request, 'hospital/Users.html')
     else:
         return redirect('hospital/Home.html')
+
+
 @unauthenticated_user
 def registerPage(request):
 
@@ -78,7 +80,7 @@ def search(request):
         elif keyword.lower() == "ambulance":
             return redirect('Ambulance/')
         elif keyword.lower() == "icu":
-            return redirect('ICUVac/')
+            return redirect('ICUVacancy/')
 
     return render(request,template_name='hospital/Home.html')
 
@@ -247,7 +249,7 @@ def icuvac(request):
     context = {
         'icuvac': icuvac,
     }
-    return render(request, template_name='hospital/ICUVac.html',context=context)
+    return render(request, template_name='hospital/ICUVacancy.html',context=context)
 
 @allowed_user(allowed_roles=['Admin'])
 def add_ICU(request):

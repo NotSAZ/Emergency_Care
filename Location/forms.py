@@ -5,6 +5,7 @@ from django import forms
 
 from .models import *
 
+
 class HospitalForm(ModelForm):
     class Meta:
         model = Hospital
